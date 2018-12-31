@@ -172,12 +172,21 @@ public class Tournament {
             Player thisPlayer = getPlayerById(tr.eliminatedPlayerIds.get(i));
 
             System.out.println("  " + thisPlayer.name() + " eliminated");
+            removeFromActivePlayersById(thisPlayer.id);
             eliminatedPlayers.add(thisPlayer);
         }
 
         // if there is only one player left, end the game and show the winner message
-        // also, prevent runaway if something happens and the loop never exits
         isPlaying = !(activePlayers.size() == 1);
+    }
+
+    public void removeFromActivePlayersById (int playerId) {
+        for (int i = 0; i < activePlayers.size(); i++) {
+            Player thisPlayer = activePlayers.get(i);
+            if (thisPlayer.id == playerId) {
+                activePlayers.remove(i);
+            }
+        }
     }
 
     public void displayTournamentState() {
