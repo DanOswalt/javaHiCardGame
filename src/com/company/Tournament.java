@@ -41,19 +41,19 @@ public class Tournament {
     String PLAYER_NAME;
     int[] BETS = {1, 2, 3, 5, 8, 12, 20, 35, 55, 90, 150, 240, 375, 625, 1000, 1600, 2500, 4000, 7000, 12000};
     Player[] players = {
-            new Player(2, false, "Qued", 50),
-            new Player(1,false, "Bood", 45),
+            new Player(1, false, "Qued", 50),
+            new Player(2,false, "Bood", 45),
             new Player(3, false, "Flek", 40),
-            new Player(3, false, "Dave", 35),
-            new Player(4,false, "Opal", 30),
-            new Player(4,false, "Teroo", 25),
-            new Player(5,false, "Hooll", 20),
-            new Player(4,false, "Teroo", 15),
-            new Player(6,false, "Mukt", 10),
-            new Player(4,false, "Ploki", 5),
-            new Player(4,false, "Zelmo", 0)
+            new Player(4, false, "Dave", 35),
+            new Player(5,false, "Opal", 30),
+            new Player(6,false, "Teroo", 25),
+            new Player(7,false, "Hooll", 20),
+            new Player(8,false, "Teroo", 15),
+            new Player(9,false, "Mukt", 10),
+            new Player(10,false, "Ploki", 5),
+            new Player(11,false, "Zelmo", 0)
     };
-    Player humanPlayer = new Player(1,true, "Dan", -1);
+    Player humanPlayer = new Player(0,true, "Dan", -1);
 
     ArrayList<Player> activePlayers = new ArrayList<>();
     ArrayList<Player> eliminatedPlayers = new ArrayList<>();
@@ -64,6 +64,7 @@ public class Tournament {
     int betLevel= 0;
     int currentBet = 0;
     boolean isPlaying = false;
+    Player winner;
 
     // one table
 
@@ -125,20 +126,28 @@ public class Tournament {
 
             // pause execution after hand finishes to check out results
             System.out.println(" ");
-            System.out.println("  Continue? y/n");
+            System.out.println("  y to continue");
 
             while (true) {
                 answer = in.nextLine().trim().toLowerCase();
                 if (answer.equals("y")) {
                     System.out.println(" ");
                     break;
-                } else if (answer.equals("n")) {
-                    System.exit(0);
                 } else {
-                    System.out.println("Please answer y/n");
+                    System.out.println("Please hit y");
                 }
             }
         } while (isPlaying);
+
+        winner = activePlayers.get(0);
+
+        System.out.println(" ");
+        System.out.println("************************");
+        System.out.println("* Winner: " + winner.name());
+        System.out.println("************************");
+        System.out.println("");
+
+
 
     }
 
@@ -158,9 +167,17 @@ public class Tournament {
         // play the hand
         tr = table.playHand(currentBet);
 
+        // check for eliminated players
+        for (int i = 0; i < tr.eliminatedPlayerIds.size(); i++) {
+            Player thisPlayer = getPlayerById(tr.eliminatedPlayerIds.get(i));
+
+            System.out.println("  " + thisPlayer.name() + " eliminated");
+            eliminatedPlayers.add(thisPlayer);
+        }
+
         // if there is only one player left, end the game and show the winner message
         // also, prevent runaway if something happens and the loop never exits
-        isPlaying = !(players.length == 1) || handNumber > 20;
+        isPlaying = !(activePlayers.size() == 1);
     }
 
     public void displayTournamentState() {
@@ -182,5 +199,15 @@ public class Tournament {
     public void incrementBetLevel() {
         betLevel++;
         currentBet = BETS[betLevel - 1];
+    }
+
+    public Player getPlayerById(int playerId) {
+        for (int i = 0; i < activePlayers.size(); i++) {
+            Player thisPlayer = activePlayers.get(i);
+            if (thisPlayer.id == playerId) {
+                return thisPlayer;
+            }
+        }
+        return null;
     }
 }
