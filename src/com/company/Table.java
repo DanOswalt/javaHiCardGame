@@ -3,7 +3,7 @@ package com.company;
 import java.util.Collections;
 import java.util.ArrayList;
 
-public class Table {
+public class Table implements Comparable<Table>{
     int id;
     int blindSeat = 0;
     int actionSeat = 0;
@@ -38,15 +38,48 @@ public class Table {
         }
     }
 
-    public void putPlayerInSeatByIndex(Player player, int index, int chips) {
-        seats[index].player = player;
-        seats[index].isEmpty = false;
-        seats[index].setChips(chips);
+    @Override
+    public int compareTo(Table otherTable) {
+        Integer a = id;
+        Integer b = otherTable.id;
+        return a.compareTo(b);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPlayersSeated() {
+        return playersSeated;
+    }
+
+    public void putPlayerInSeatByIndex(Player player, int seatIndex, int chips) {
+        seats[seatIndex].player = player;
+        seats[seatIndex].isEmpty = false;
+        seats[seatIndex].setChips(chips);
         playersSeated++;
+    }
+
+    public void seatPlayerInFirstEmptySeat(Player player, int chips) {
+        Seat thisSeat;
+
+        for (int i = 0; i < 6; i++) {
+            thisSeat = seats[i];
+
+            if (thisSeat.isEmpty) {
+                thisSeat.player = player;
+                thisSeat.chips = chips;
+                thisSeat.isEmpty = false;
+                playersSeated++;
+                break;
+            }
+        }
     }
 
     public void displayCurrentTableState() {
 
+        System.out.println(" ");
+        System.out.println("  Table: " + (id));
         System.out.println("*-------------*");
         for(int i = 0; i < 6; i++) {
             if (seats[i].isEmpty) {
@@ -229,7 +262,6 @@ public class Table {
             seats[p.winnerId - 1 ].chips += p.chips;
         }
     }
-
 
     public void divvyIntoPots() {
         int potIndex = 0;
