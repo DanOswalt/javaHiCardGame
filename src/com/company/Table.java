@@ -9,6 +9,7 @@ public class Table implements Comparable<Table>{
     int actionSeat = 0;
     int playersSeated;
     boolean outstandingBets = false;
+    boolean humanAtTable = false;
 
     ArrayList<Integer> eliminatedPlayers = new ArrayList<>();
 
@@ -53,12 +54,13 @@ public class Table implements Comparable<Table>{
         return playersSeated;
     }
 
-    public void putPlayerInSeatByIndex(Player player, int seatIndex, int chips) {
-        seats[seatIndex].player = player;
-        seats[seatIndex].isEmpty = false;
-        seats[seatIndex].setChips(chips);
-        playersSeated++;
-    }
+//    public void putPlayerInSeatByIndex(Player player, int seatIndex, int chips) {
+//        seats[seatIndex].player = player;
+//        seats[seatIndex].isEmpty = false;
+//        seats[seatIndex].setChips(chips);
+//        playersSeated++;
+//        if
+//    }
 
     public void seatPlayerInFirstEmptySeat(Player player, int chips) {
         Seat thisSeat;
@@ -71,6 +73,7 @@ public class Table implements Comparable<Table>{
                 thisSeat.chips = chips;
                 thisSeat.isEmpty = false;
                 playersSeated++;
+                if (thisSeat.player.isHuman()) humanAtTable = true;
                 break;
             }
         }
@@ -144,10 +147,12 @@ public class Table implements Comparable<Table>{
                 seatsCommitted.add(actionSeat);
                 activeSeat.doesCall = true;
 
-                if (activeSeat.committedAllIn) {
-                    System.out.println("  " + activeSeat.player.name() + " posts blind (" + activeSeat.committedBet + ") and is all in!");
-                } else {
-                    System.out.println("  " + activeSeat.player.name() + " posts blind (" + activeSeat.committedBet +").");
+                if (humanAtTable) {
+                    if (activeSeat.committedAllIn) {
+                        System.out.println("  " + activeSeat.player.name() + " posts blind (" + activeSeat.committedBet + ") and is all in!");
+                    } else {
+                        System.out.println("  " + activeSeat.player.name() + " posts blind (" + activeSeat.committedBet + ").");
+                    }
                 }
 
             // then do the decisions
@@ -155,13 +160,13 @@ public class Table implements Comparable<Table>{
                 activeSeat.doesCall = activeSeat.player.willPlay(activeSeat.hand.value);
 
                 if (activeSeat.doesCall && activeSeat.committedAllIn) {
-                    System.out.println("  " + activeSeat.player.name() + " calls (" + activeSeat.committedBet + ") and is all in!");
+                    if (humanAtTable) System.out.println("  " + activeSeat.player.name() + " calls (" + activeSeat.committedBet + ") and is all in!");
                     seatsCommitted.add(actionSeat);
                 } else if (activeSeat.doesCall) {
-                    System.out.println("  " + activeSeat.player.name() + " calls (" + activeSeat.committedBet + ").");
+                    if (humanAtTable) System.out.println("  " + activeSeat.player.name() + " calls (" + activeSeat.committedBet + ").");
                     seatsCommitted.add(actionSeat);
                 } else {
-                    System.out.println("  " + activeSeat.player.name() + " folds.");
+                    if (humanAtTable) System.out.println("  " + activeSeat.player.name() + " folds.");
                 }
             }
 
@@ -174,7 +179,7 @@ public class Table implements Comparable<Table>{
         divvyIntoPots();
         getWinners();
         awardChips();
-        displayWinners();
+        if (humanAtTable) displayWinners();
         eliminatePlayers();
 
         TableReport tr = new TableReport(playersSeated, 18, eliminatedPlayers);

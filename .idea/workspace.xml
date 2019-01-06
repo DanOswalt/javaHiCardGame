@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="076050e7-8f35-4767-9d1a-a5ba5fd840ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/commando/com/company/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/commando/com/company/Table.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/commando/com/company/Tournament.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/commando/com/company/Tournament.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Tournament.java" afterDir="false" />
     </list>
@@ -18,25 +15,18 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+            <state relative-caret-position="450">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#compareTo#0;class#Table#0" />
+                <element signature="e#1209#1210#0" expanded="true" />
+                <element signature="e#1234#1235#0" expanded="true" />
                 <element signature="method#displayCurrentTableState#0;class#Table#0" />
                 <element signature="method#moveBlind#0;class#Table#0" />
                 <element signature="method#moveAction#0;class#Table#0" />
-                <element signature="method#playHand#0;class#Table#0" />
                 <element signature="method#eliminatePlayers#0;class#Table#0" />
                 <element signature="method#displayWinners#0;class#Table#0" />
                 <element signature="method#getWinners#0;class#Table#0" />
@@ -50,12 +40,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/Seat.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="261">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <element signature="method#resetForNewHand#0;class#Seat#0" />
+                <element signature="e#440#441#0" expanded="true" />
+                <element signature="method#willPlay#0;class#Player#0" />
               </folding>
             </state>
           </provider>
@@ -65,11 +56,11 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Tournament.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2">
-              <caret line="275" column="61" selection-start-line="275" selection-start-column="61" selection-end-line="275" selection-end-column="61" />
+              <caret line="284" column="48" lean-forward="true" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="48" />
               <folding>
                 <element signature="method#Tournament#0;class#Tournament#0" />
+                <element signature="method#start#0;class#Tournament#0" />
                 <element signature="method#displayTables#0;class#Tournament#0" />
-                <element signature="method#playNextHand#0;class#Tournament#0" />
                 <element signature="method#removeFromActivePlayersById#0;class#Tournament#0" />
                 <element signature="method#displayTournamentState#0;class#Tournament#0" />
                 <element signature="method#incrementHandNumber#0;class#Tournament#0" />
@@ -120,9 +111,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="commando" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commando" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commando" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commando" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commando" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commando" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -175,6 +187,7 @@
       <workItem from="1545581863471" duration="50646000" />
       <workItem from="1546286322221" duration="12170000" />
       <workItem from="1546567481089" duration="11641000" />
+      <workItem from="1546741228789" duration="6236000" />
     </task>
     <task id="LOCAL-00001" summary="single table working (?)">
       <created>1546228583044</created>
@@ -187,7 +200,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107539000" />
+    <option name="totallyTimeSpent" value="113775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1280" height="680" extended-state="6" />
@@ -202,7 +215,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922536" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.8609155" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.26232395" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41021127" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -229,6 +242,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="single table working (?)" />
     <option name="LAST_COMMIT_MESSAGE" value="single table working (?)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/company/Tournament.java</url>
+          <line>254</line>
+          <properties class="com.company.Tournament" method="closeATable">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/doIWork.java" />
@@ -274,28 +301,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/io/FileInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="242" column="23" selection-start-line="242" selection-start-column="23" selection-end-line="242" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -316,16 +325,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        <state relative-caret-position="450">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#compareTo#0;class#Table#0" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1234#1235#0" expanded="true" />
             <element signature="method#displayCurrentTableState#0;class#Table#0" />
             <element signature="method#moveBlind#0;class#Table#0" />
             <element signature="method#moveAction#0;class#Table#0" />
-            <element signature="method#playHand#0;class#Table#0" />
             <element signature="method#eliminatePlayers#0;class#Table#0" />
             <element signature="method#displayWinners#0;class#Table#0" />
             <element signature="method#getWinners#0;class#Table#0" />
@@ -337,14 +355,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="method#willPlay#0;class#Player#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Tournament.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
-          <caret line="275" column="61" selection-start-line="275" selection-start-column="61" selection-end-line="275" selection-end-column="61" />
+          <caret line="284" column="48" lean-forward="true" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="48" />
           <folding>
             <element signature="method#Tournament#0;class#Tournament#0" />
+            <element signature="method#start#0;class#Tournament#0" />
             <element signature="method#displayTables#0;class#Tournament#0" />
-            <element signature="method#playNextHand#0;class#Tournament#0" />
             <element signature="method#removeFromActivePlayersById#0;class#Tournament#0" />
             <element signature="method#displayTournamentState#0;class#Tournament#0" />
             <element signature="method#incrementHandNumber#0;class#Tournament#0" />

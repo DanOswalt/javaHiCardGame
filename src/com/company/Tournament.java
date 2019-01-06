@@ -198,7 +198,7 @@ public class Tournament {
         for (int i = 0; i < tables.size(); i++) {
             Table thisTable = tables.get(i);
             thisTable.moveBlind();
-            thisTable.displayCurrentTableState();
+            if (thisTable.humanAtTable) thisTable.displayCurrentTableState();
 
             // play the hand
             tr = thisTable.playHand(currentBet);
@@ -236,14 +236,19 @@ public class Tournament {
         // close some tables if possible
         while (canCloseATable()) closeATable();
 
+        // balance swaps first
+
+        // distribute unseated players from closed tables
         reseatPlayersFromClosedTables();
+
+        Collections.sort(tables);
 
     }
 
     public boolean canCloseATable() {
         int capacity = tables.size() * 6;
         int diff = capacity - activePlayers.size();
-        boolean closeATable = diff > 6;
+        boolean closeATable = diff >= 6;
         return closeATable;
     }
 
@@ -260,7 +265,7 @@ public class Tournament {
             }
         }
 
-        System.out.println("Closed table " + closedTable.getId());
+        System.out.println("  Closed table " + closedTable.getId());
     }
 
     public void reseatPlayersFromClosedTables() {
@@ -274,12 +279,11 @@ public class Tournament {
         for (int i = 0; i < initialArraySize; i++) {
             thisPlayer = playersToBeReseated.remove(0);
             theirChips = chipsForPlayersToBeReseated.remove(0);
-            tableIndex = tableIndex == (tables.size() - 1) ? 0 : tableIndex + 1;
 
             thisTable = tables.get(tableIndex);
 
-            // if working properly, this shouldn't ever try to seat someone at full table
             thisTable.seatPlayerInFirstEmptySeat(thisPlayer, theirChips);
+            tableIndex = tableIndex == (tables.size() - 1) ? 0 : tableIndex + 1;
         }
     }
 
