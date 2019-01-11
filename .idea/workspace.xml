@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="076050e7-8f35-4767-9d1a-a5ba5fd840ef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/commando/com/company/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/commando/com/company/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/commando/com/company/Tournament.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/commando/com/company/Tournament.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Tournament.java" afterDir="false" />
     </list>
@@ -17,17 +20,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="2880">
+              <caret line="303" column="39" selection-start-line="303" selection-start-column="39" selection-end-line="303" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#compareTo#0;class#Table#0" />
-                <element signature="e#1209#1210#0" expanded="true" />
-                <element signature="e#1234#1235#0" expanded="true" />
-                <element signature="method#displayCurrentTableState#0;class#Table#0" />
-                <element signature="method#moveBlind#0;class#Table#0" />
-                <element signature="method#moveAction#0;class#Table#0" />
-                <element signature="method#eliminatePlayers#0;class#Table#0" />
+                <element signature="e#446#455#0" expanded="true" />
+                <element signature="e#1244#1245#0" expanded="true" />
+                <element signature="e#1269#1270#0" expanded="true" />
+                <element signature="e#1306#1307#0" expanded="true" />
+                <element signature="e#1342#1343#0" expanded="true" />
                 <element signature="method#displayWinners#0;class#Table#0" />
                 <element signature="method#getWinners#0;class#Table#0" />
                 <element signature="method#awardChips#0;class#Table#0" />
@@ -55,17 +56,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Tournament.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="284" column="48" lean-forward="true" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="48" />
+            <state relative-caret-position="4">
+              <caret line="304" column="48" selection-start-line="304" selection-start-column="48" selection-end-line="304" selection-end-column="48" />
               <folding>
-                <element signature="method#Tournament#0;class#Tournament#0" />
-                <element signature="method#start#0;class#Tournament#0" />
-                <element signature="method#displayTables#0;class#Tournament#0" />
+                <element signature="method#canCloseATable#0;class#Tournament#0" />
+                <element signature="method#closeATable#0;class#Tournament#0" />
+                <element signature="method#reseatPlayersFromClosedTables#0;class#Tournament#0" />
                 <element signature="method#removeFromActivePlayersById#0;class#Tournament#0" />
                 <element signature="method#displayTournamentState#0;class#Tournament#0" />
                 <element signature="method#incrementHandNumber#0;class#Tournament#0" />
                 <element signature="method#incrementBetLevel#0;class#Tournament#0" />
                 <element signature="method#getPlayerById#0;class#Tournament#0" />
+                <element signature="method#setFeaturedTable#0;class#Tournament#0" />
               </folding>
             </state>
           </provider>
@@ -79,6 +81,15 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>featureTable</find>
+      <find>System.out.println(</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>featuredTable</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -140,7 +151,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546230358549" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547176047165" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../new2" />
   </component>
   <component name="RunDashboard">
@@ -187,7 +198,7 @@
       <workItem from="1545581863471" duration="50646000" />
       <workItem from="1546286322221" duration="12170000" />
       <workItem from="1546567481089" duration="11641000" />
-      <workItem from="1546741228789" duration="6236000" />
+      <workItem from="1546741228789" duration="19059000" />
     </task>
     <task id="LOCAL-00001" summary="single table working (?)">
       <created>1546228583044</created>
@@ -200,7 +211,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113775000" />
+    <option name="totallyTimeSpent" value="126598000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1280" height="680" extended-state="6" />
@@ -214,11 +234,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922536" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.8609155" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.41021127" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.8503521" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29929578" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32922536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -243,29 +263,8 @@
     <MESSAGE value="single table working (?)" />
     <option name="LAST_COMMIT_MESSAGE" value="single table working (?)" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/company/Tournament.java</url>
-          <line>254</line>
-          <properties class="com.company.Tournament" method="closeATable">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/doIWork.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/company/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Pot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -332,29 +331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#compareTo#0;class#Table#0" />
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-            <element signature="method#displayCurrentTableState#0;class#Table#0" />
-            <element signature="method#moveBlind#0;class#Table#0" />
-            <element signature="method#moveAction#0;class#Table#0" />
-            <element signature="method#eliminatePlayers#0;class#Table#0" />
-            <element signature="method#displayWinners#0;class#Table#0" />
-            <element signature="method#getWinners#0;class#Table#0" />
-            <element signature="method#awardChips#0;class#Table#0" />
-            <element signature="method#divvyIntoPots#0;class#Table#0" />
-            <element signature="method#checkOutstandingBets#0;class#Table#0" />
-            <element signature="method#filterZeroCommittedChips#0;class#Table#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -366,19 +342,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2880">
+          <caret line="303" column="39" selection-start-line="303" selection-start-column="39" selection-end-line="303" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#446#455#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="method#displayWinners#0;class#Table#0" />
+            <element signature="method#getWinners#0;class#Table#0" />
+            <element signature="method#awardChips#0;class#Table#0" />
+            <element signature="method#divvyIntoPots#0;class#Table#0" />
+            <element signature="method#checkOutstandingBets#0;class#Table#0" />
+            <element signature="method#filterZeroCommittedChips#0;class#Table#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Tournament.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="284" column="48" lean-forward="true" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="48" />
+        <state relative-caret-position="4">
+          <caret line="304" column="48" selection-start-line="304" selection-start-column="48" selection-end-line="304" selection-end-column="48" />
           <folding>
-            <element signature="method#Tournament#0;class#Tournament#0" />
-            <element signature="method#start#0;class#Tournament#0" />
-            <element signature="method#displayTables#0;class#Tournament#0" />
+            <element signature="method#canCloseATable#0;class#Tournament#0" />
+            <element signature="method#closeATable#0;class#Tournament#0" />
+            <element signature="method#reseatPlayersFromClosedTables#0;class#Tournament#0" />
             <element signature="method#removeFromActivePlayersById#0;class#Tournament#0" />
             <element signature="method#displayTournamentState#0;class#Tournament#0" />
             <element signature="method#incrementHandNumber#0;class#Tournament#0" />
             <element signature="method#incrementBetLevel#0;class#Tournament#0" />
             <element signature="method#getPlayerById#0;class#Tournament#0" />
+            <element signature="method#setFeaturedTable#0;class#Tournament#0" />
           </folding>
         </state>
       </provider>

@@ -36,7 +36,7 @@ public class Tournament {
     int HANDS_PER_ROUND;
     int NUM_TABLES;
     String PLAYER_NAME;
-    int[] BETS = {1, 2, 3, 5, 8, 12, 20, 35, 55, 90, 150, 240, 375, 625, 1000, 1600, 2500, 4000, 7000, 12000};
+    int[] BETS = {1, 2, 3, 4, 6, 8, 10, 13, 16, 20, 25, 32, 40, 50, 65, 90, 120, 160, 220, 300};
     Player[] players = {
             new Player(1, false, "Qued", 50),
             new Player(2,false, "Bood", 48),
@@ -63,7 +63,40 @@ public class Tournament {
             new Player(23,false, "Morkin", 6),
             new Player(24,false, "Razu", 4),
             new Player(25,false, "Orsh", 2),
-            new Player(26,false, "Glis", 0)
+            new Player(26,false, "Glis", 0),
+            new Player(27, false, "Charf", 50),
+            new Player(28,false, "Nusg", 48),
+            new Player(29, false, "Ams", 46),
+            new Player(30, false, "Stubb", 44),
+            new Player(31,false, "Norsh", 42),
+            new Player(32,false, "Jamblo", 40),
+            new Player(33,false, "Nux", 38),
+            new Player(34,false, "Espi", 36),
+            new Player(35,false, "Vorp", 34),
+            new Player(36,false, "Chup", 32),
+            new Player(37,false, "Gerr", 30),
+            new Player(38,false, "Zmike", 28),
+            new Player(39, false, "Sloov", 26),
+            new Player(40,false, "Duxi", 24),
+            new Player(41, false, "Alpgi", 22),
+            new Player(42, false, "Yap", 20),
+            new Player(43,false, "Snuv", 18),
+            new Player(44,false, "Quibl", 16),
+            new Player(45,false, "Kluo", 14),
+            new Player(46,false, "Bovvr", 12),
+            new Player(47,false, "Unge", 10),
+            new Player(48,false, "Wert", 8),
+            new Player(49,false, "Uif", 6),
+            new Player(50,false, "Omzi", 4),
+            new Player(51,false, "Golop", 2),
+            new Player(52,false, "Erth", 0),
+            new Player(53, false, "Zizor", 50),
+            new Player(54,false, "Uchu", 40),
+            new Player(55, false, "Izbir", 30),
+            new Player(56, false, "Nagl", 20),
+            new Player(57,false, "Hujj", 10),
+            new Player(58,false, "Glau", 0),
+            new Player(59,false, "Xaeiou", 30)
     };
     Player humanPlayer = new Player(0,true, "Dan", -1);
 
@@ -81,17 +114,14 @@ public class Tournament {
     boolean isPlaying = false;
     Player winner;
 
-    // one table
-
-    Table table;
     TableReport tr;
 
     // One day, these could be initialized by user in constructor
     public Tournament() {
-        INITIAL_STACK = 3;
+        INITIAL_STACK = 4;
         INITIAL_BLIND = 1;
         HANDS_PER_ROUND = 10;
-        NUM_TABLES = 3;
+        NUM_TABLES = 10;
         PLAYER_NAME = "DAN";
     }
 
@@ -148,7 +178,7 @@ public class Tournament {
             System.out.println(" ");
 
             while (true) {
-                System.out.println("  y to continue, l for leaderboard, t for tables, q to quit");
+                System.out.println("  y to continue, l for leaderboard, t for tables, f to set featured table, q to quit");
                 answer = in.nextLine().trim().toLowerCase();
 
                 if (answer.equals("y")) {
@@ -160,10 +190,13 @@ public class Tournament {
                 } else if (answer.equals("t")){
                     displayTables();
                     System.out.println(" ");
+                } else if (answer.equals("f")){
+                    setFeaturedTable();
+                    System.out.println(" ");
                 } else if (answer.equals("q")){
                     System.exit(0);
                 } else {
-                    System.out.println("  Please make a selection [yltq]");
+                    System.out.println("  Please make a selection [yltfq]");
                 }
             }
         } while (isPlaying);
@@ -198,7 +231,7 @@ public class Tournament {
         for (int i = 0; i < tables.size(); i++) {
             Table thisTable = tables.get(i);
             thisTable.moveBlind();
-            if (thisTable.humanAtTable) thisTable.displayCurrentTableState();
+            if (thisTable.featuredTable) thisTable.displayCurrentTableState();
 
             // play the hand
             tr = thisTable.playHand(currentBet);
@@ -206,8 +239,9 @@ public class Tournament {
             // check for eliminated players
             for (int j = 0; j < tr.eliminatedPlayerIds.size(); j++) {
                 Player thisPlayer = getPlayerById(tr.eliminatedPlayerIds.get(j));
+                int finishingPlace = activePlayers.size();
 
-                System.out.println("  " + thisPlayer.name() + " eliminated");
+                System.out.println("  Table " + thisTable.getId() + ": " + thisPlayer.name() + " eliminated in " + finishingPlace + " place.");
                 removeFromActivePlayersById(thisPlayer.id);
                 eliminatedPlayers.add(thisPlayer);
             }
@@ -277,14 +311,16 @@ public class Tournament {
 
         // will need to cycle back through tables if more players than tables
         for (int i = 0; i < initialArraySize; i++) {
+            thisTable = tables.get(tableIndex);
+            if (thisTable.playersSeated == 6) continue;
+
             thisPlayer = playersToBeReseated.remove(0);
             theirChips = chipsForPlayersToBeReseated.remove(0);
-
-            thisTable = tables.get(tableIndex);
 
             thisTable.seatPlayerInFirstEmptySeat(thisPlayer, theirChips);
             tableIndex = tableIndex == (tables.size() - 1) ? 0 : tableIndex + 1;
         }
+
     }
 
     public void removeFromActivePlayersById (int playerId) {
@@ -324,5 +360,37 @@ public class Tournament {
             }
         }
         return null;
+    }
+
+    public void setFeaturedTable() {
+        Scanner in = new Scanner(System.in);
+        int answer;
+        Table thisTable;
+        Table thatTable;
+
+        while (true) {
+            System.out.println("  Select table number: ");
+            answer = in.nextInt();
+            int tablesSize = tables.size();
+
+            for (int i = 0; i < tablesSize; i++) {
+                if (answer < 1 ) System.out.println("  Table selection out of range.");
+
+                thisTable = tables.get(i);
+
+                if (thisTable.getId() == answer) {
+                    thisTable.featuredTable = true;
+
+                    for (int j = 0; j < tables.size(); j++) {
+                        thatTable = tables.get(j);
+                        if (thatTable.featuredTable == true && thatTable.getId() != answer) {
+                            thatTable.featuredTable = false;
+                            return;
+                        }
+                    }
+                }
+            }
+            System.out.println("  Table selection not found.");
+        }
     }
 }
