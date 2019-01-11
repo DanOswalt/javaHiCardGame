@@ -14,7 +14,9 @@ public class Table implements Comparable<Table>{
     ArrayList<Integer> eliminatedPlayers = new ArrayList<>();
 
     ArrayList<Pot> pots = new ArrayList<>();
-    ArrayList<Integer> seatsCommitted = new ArrayList<Integer>();
+    ArrayList<Integer> seatsCommitted = new ArrayList<>();
+    ArrayList<NameAndStack> nameAndStacks = new ArrayList<>();
+
     String[] potNames = {
             "Main Pot",
             "Sidepot A",
@@ -173,11 +175,24 @@ public class Table implements Comparable<Table>{
         awardChips();
         if (featuredTable) displayWinners();
         eliminatePlayers();
+        updateStackReport();
 
-        TableReport tr = new TableReport(playersSeated, 18, eliminatedPlayers);
+        TableReport tr = new TableReport(playersSeated, 18, eliminatedPlayers, nameAndStacks);
 
         return tr;
 
+    }
+
+    public void updateStackReport() {
+        nameAndStacks.clear();
+
+        for (int i = 0; i < 6; i++) {
+            Seat thisSeat = seats[i];
+
+            if (thisSeat.isEmpty) continue;
+
+            nameAndStacks.add(new NameAndStack(thisSeat.player.name(), thisSeat.chips));
+        }
     }
 
     public void eliminatePlayers() {

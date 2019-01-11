@@ -8,12 +8,15 @@ public class TableReport {
     // at the end of each hand.
 
     ArrayList<Integer> eliminatedPlayerIds = new ArrayList<>();
+    ArrayList<NameAndStack> nameAndStacks = new ArrayList<>();
     int playersAtTable;
     int chipsAtTable;
 
-    public TableReport(int playersAtTable, int chipsAtTable, ArrayList<Integer> eliminatedPlayerIds) {
+    public TableReport(int playersAtTable, int chipsAtTable, ArrayList<Integer> eliminatedPlayerIds, ArrayList<NameAndStack> nameAndStacks) {
         this.playersAtTable = playersAtTable;
         this.chipsAtTable = chipsAtTable;
         this.eliminatedPlayerIds = eliminatedPlayerIds;
+        this.nameAndStacks = nameAndStacks;
+
     }
 }

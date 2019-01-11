@@ -104,6 +104,7 @@ public class Tournament {
     ArrayList<Player> eliminatedPlayers = new ArrayList<>();
     ArrayList<Player> playersToBeReseated = new ArrayList<>();
     ArrayList<Integer> chipsForPlayersToBeReseated = new ArrayList<>();
+    ArrayList<NameAndStack> leaderboard = new ArrayList<>();
     ArrayList<Table> tables = new ArrayList<>();
 
     // declare counters;
@@ -113,8 +114,6 @@ public class Tournament {
     int currentBet = 0;
     boolean isPlaying = false;
     Player winner;
-
-    TableReport tr;
 
     // One day, these could be initialized by user in constructor
     public Tournament() {
@@ -185,7 +184,7 @@ public class Tournament {
                     System.out.println(" ");
                     break;
                 } else if (answer.equals("l")){
-//                    displayLeaderboard();
+                    displayLeaderboard();
                     System.out.println(" ");
                 } else if (answer.equals("t")){
                     displayTables();
@@ -210,6 +209,20 @@ public class Tournament {
         System.out.println(" ");
     }
 
+    public void displayLeaderboard() {
+
+        int size = leaderboard.size() < 10 ? leaderboard.size() : 10;
+        Collections.sort(leaderboard);
+
+        System.out.println(" ");
+        for (int i = 0; i < size; i++) {
+            NameAndStack stack = leaderboard.get(i);
+
+            System.out.println("  " + (i + 1) + ". " + stack.name + ": " + stack.chips);
+        }
+        System.out.println(" ");
+    }
+
     public void displayTables() {
         System.out.println(" ");
         for (int i = 0; i < tables.size(); i++) {
@@ -228,13 +241,19 @@ public class Tournament {
         }
         displayTournamentState();
 
+        leaderboard.clear();
+
         for (int i = 0; i < tables.size(); i++) {
             Table thisTable = tables.get(i);
             thisTable.moveBlind();
             if (thisTable.featuredTable) thisTable.displayCurrentTableState();
 
             // play the hand
-            tr = thisTable.playHand(currentBet);
+            TableReport tr = thisTable.playHand(currentBet);
+
+            for (NameAndStack stack : tr.nameAndStacks) {
+                leaderboard.add(stack);
+            }
 
             // check for eliminated players
             for (int j = 0; j < tr.eliminatedPlayerIds.size(); j++) {
