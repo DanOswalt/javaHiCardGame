@@ -52,10 +52,6 @@ public class Table implements Comparable<Table>{
         return id;
     }
 
-    public int getPlayersSeated() {
-        return playersSeated;
-    }
-
     public void seatPlayerInFirstEmptySeat(Player player, int chips) {
         Seat thisSeat;
 

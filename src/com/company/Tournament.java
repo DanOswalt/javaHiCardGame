@@ -36,69 +36,69 @@ public class Tournament {
     int HANDS_PER_ROUND;
     int NUM_TABLES;
     String PLAYER_NAME;
-    int[] BETS = {1, 2, 3, 4, 6, 8, 10, 13, 16, 20, 25, 32, 40, 50, 65, 90, 120, 160, 220, 300};
-    Player[] players = {
-            new Player(1, false, "Qued", 50),
-            new Player(2,false, "Bood", 48),
-            new Player(3, false, "Flek", 46),
-            new Player(4, false, "Dave", 44),
-            new Player(5,false, "Opal", 42),
-            new Player(6,false, "Teroo", 40),
-            new Player(7,false, "Hooll", 38),
-            new Player(8,false, "Noel", 36),
-            new Player(9,false, "Mukt", 34),
-            new Player(10,false, "Ploki", 32),
-            new Player(11,false, "Zelmo", 30),
-            new Player(12,false, "Micah", 28),
-            new Player(13, false, "Kijj", 26),
-            new Player(14,false, "Xui", 24),
-            new Player(15, false, "Yui", 22),
-            new Player(16, false, "Vur", 20),
-            new Player(17,false, "Eeb", 18),
-            new Player(18,false, "Bux", 16),
-            new Player(19,false, "Kloo", 14),
-            new Player(20,false, "Thup", 12),
-            new Player(21,false, "Norg", 10),
-            new Player(22,false, "Qas", 8),
-            new Player(23,false, "Morkin", 6),
-            new Player(24,false, "Razu", 4),
-            new Player(25,false, "Orsh", 2),
-            new Player(26,false, "Glis", 0),
-            new Player(27, false, "Charf", 50),
-            new Player(28,false, "Nusg", 48),
-            new Player(29, false, "Ams", 46),
-            new Player(30, false, "Stubb", 44),
-            new Player(31,false, "Norsh", 42),
-            new Player(32,false, "Jamblo", 40),
-            new Player(33,false, "Nux", 38),
-            new Player(34,false, "Espi", 36),
-            new Player(35,false, "Vorp", 34),
-            new Player(36,false, "Chup", 32),
-            new Player(37,false, "Gerr", 30),
-            new Player(38,false, "Zmike", 28),
-            new Player(39, false, "Sloov", 26),
-            new Player(40,false, "Duxi", 24),
-            new Player(41, false, "Alpgi", 22),
-            new Player(42, false, "Yap", 20),
-            new Player(43,false, "Snuv", 18),
-            new Player(44,false, "Quibl", 16),
-            new Player(45,false, "Kluo", 14),
-            new Player(46,false, "Bovvr", 12),
-            new Player(47,false, "Unge", 10),
-            new Player(48,false, "Wert", 8),
-            new Player(49,false, "Uif", 6),
-            new Player(50,false, "Omzi", 4),
-            new Player(51,false, "Golop", 2),
-            new Player(52,false, "Erth", 0),
-            new Player(53, false, "Zizor", 50),
-            new Player(54,false, "Uchu", 40),
-            new Player(55, false, "Izbir", 30),
-            new Player(56, false, "Nagl", 20),
-            new Player(57,false, "Hujj", 10),
-            new Player(58,false, "Glau", 0),
-            new Player(59,false, "Xaeiou", 30)
+    int[] BETS = {1, 2, 3, 4, 6, 8, 10, 13, 16, 20, 25, 32, 40, 50, 65, 90, 120, 160, 220, 300, 400, 550, 750, 1000, 1400, 2000, 3000, 5000, 8000, 12000, 18000, 26000, 40000, 64000, 100000};
+    Player[] rivals = {
+            new Player(1, false, "-Qued", 50),
+            new Player(2,false, "-Bood", 48),
+            new Player(3, false, "-Flek", 46),
+            new Player(4, false, "-Dave", 44),
+            new Player(5,false, "-Opal", 42),
+            new Player(6,false, "-Teroo", 40),
+            new Player(7,false, "-Hooll", 38),
+            new Player(8,false, "-Noel", 36),
+            new Player(9,false, "-Mukt", 34),
+            new Player(10,false, "-Ploki", 32),
+            new Player(11,false, "-Zelmo", 30),
+            new Player(12,false, "-Micah", 28),
+            new Player(13, false, "-Kijj", 26),
+            new Player(14,false, "-Xui", 24),
+            new Player(15, false, "-Yui", 22),
+            new Player(16, false, "-Vur", 20),
+            new Player(17,false, "-Eeb", 18),
+            new Player(18,false, "-Bux", 16),
+            new Player(19,false, "-Kloo", 14),
+            new Player(20,false, "-Thup", 12),
+            new Player(21,false, "-Norg", 10),
+            new Player(22,false, "-Qas", 8),
+            new Player(23,false, "-Morkin", 6),
+            new Player(24,false, "-Razu", 4),
+            new Player(25,false, "-Orsh", 2),
+            new Player(26,false, "-Glis", 0),
+            new Player(27, false, "-Charf", 50),
+            new Player(28,false, "-Nusg", 48),
+            new Player(29, false, "-Ams", 46),
+            new Player(30, false, "-Stubb", 44),
+            new Player(31,false, "-Norsh", 42),
+            new Player(32,false, "-Jamblo", 40),
+            new Player(33,false, "-Nux", 38),
+            new Player(34,false, "-Espi", 36),
+            new Player(35,false, "-Vorp", 34),
+            new Player(36,false, "-Chup", 32),
+            new Player(37,false, "-Meg", 30),
+            new Player(38,false, "-Zmike", 28),
+            new Player(39, false, "-Sloov", 26),
+            new Player(40,false, "-Duxi", 24),
+            new Player(41, false, "-Alpgi", 22),
+            new Player(42, false, "-Yap", 20),
+            new Player(43,false, "-Snuv", 18),
+            new Player(44,false, "-Quibl", 16),
+            new Player(45,false, "-Kluo", 14),
+            new Player(46,false, "-Bovvr", 12),
+            new Player(47,false, "-Unge", 10),
+            new Player(48,false, "-Wert", 8),
+            new Player(49,false, "-Uif", 6),
+            new Player(50,false, "-Omzi", 4),
+            new Player(51,false, "-Golop", 2),
+            new Player(52,false, "-Erth", 0),
+            new Player(53, false, "-Zizor", 50),
+            new Player(54,false, "-Uchu", 40),
+            new Player(55, false, "-Izbir", 30),
+            new Player(56, false, "-Nagl", 20),
+            new Player(57,false, "-Hujj", 10),
+            new Player(58,false, "-Glau", 0),
+            new Player(59,false, "-Xaeiou", 30)
     };
-    Player humanPlayer = new Player(0,true, "Dan", -1);
+    Player humanPlayer = new Player(0,true, "-Dan", -1);
 
     ArrayList<Player> activePlayers = new ArrayList<>();
     ArrayList<Player> eliminatedPlayers = new ArrayList<>();
@@ -120,13 +120,19 @@ public class Tournament {
         INITIAL_STACK = 4;
         INITIAL_BLIND = 1;
         HANDS_PER_ROUND = 10;
-        NUM_TABLES = 10;
+        NUM_TABLES = 50;
         PLAYER_NAME = "DAN";
     }
 
     public void start() {
         Scanner in = new Scanner(System.in);
         String answer;
+        int totalPlayers = NUM_TABLES * 6;
+        int totalRivals = totalPlayers / 20;
+        totalRivals = totalRivals > rivals.length ? rivals.length : totalRivals;
+        int totalRandos = totalPlayers - totalRivals - 1;
+
+        System.out.printf("players %d rivals %d randos %d", totalPlayers, totalRivals, totalRandos);
 
         // create empty tables
         for (int i = 0; i < NUM_TABLES; i++) {
@@ -137,15 +143,23 @@ public class Tournament {
         // append the human player
         // then shuffle again
 
-        Collections.shuffle(Arrays.asList(players));
+        // shuffle the rivals list
+        Collections.shuffle(Arrays.asList(rivals));
 
-        for (int i = 0; i < (NUM_TABLES * 6) - 1; i++) {
-//          activePlayers.add(players[i]);
-            activePlayers.add(new Player(i + 1));
-        }
-
+        // first, add in human
         activePlayers.add(humanPlayer);
 
+        // second, add in rivals
+        for (int i = 0; i < totalRivals; i++) {
+          activePlayers.add(rivals[i]);
+        }
+
+        // third, add in randos
+        for (int i = 0; i < totalRandos; i++) {
+            activePlayers.add(new Player(i + 1 + 60));
+        }
+
+        // then shuffle the whole thing
         Collections.shuffle(activePlayers);
 
         // seat the players
@@ -260,8 +274,7 @@ public class Tournament {
             for (int j = 0; j < tr.eliminatedPlayerIds.size(); j++) {
                 Player thisPlayer = getPlayerById(tr.eliminatedPlayerIds.get(j));
                 int finishingPlace = activePlayers.size();
-//                System.out.println(thisPlayer.name());
-//                System.out.println(thisTable.getId());
+
                 System.out.println("  Table " + thisTable.getId() + ": " + thisPlayer.name() + " eliminated in " + finishingPlace + " place.");
                 removeFromActivePlayersById(thisPlayer.id);
                 eliminatedPlayers.add(thisPlayer);
@@ -389,7 +402,6 @@ public class Tournament {
         Table thisTable;
         Table thatTable;
 
-        while (true) {
             System.out.println("  Select table number: ");
             answer = in.nextInt();
             int tablesSize = tables.size();
@@ -401,6 +413,7 @@ public class Tournament {
 
                 if (thisTable.getId() == answer) {
                     thisTable.featuredTable = true;
+                    System.out.println("  Featured table set to table: " + answer);
 
                     for (int j = 0; j < tables.size(); j++) {
                         thatTable = tables.get(j);
@@ -411,7 +424,5 @@ public class Tournament {
                     }
                 }
             }
-            System.out.println("  Table selection not found.");
-        }
     }
 }

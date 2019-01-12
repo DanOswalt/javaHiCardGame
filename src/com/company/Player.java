@@ -9,12 +9,14 @@ public class Player {
     private String name;
     private int callThreshold;
     public int id;
+    boolean rival;
 
     public Player (int id, boolean human, String name, int callThreshold) {
         this.id = id;
         this.human = human;
         this.name = name;
         this.callThreshold = callThreshold;
+        this.rival = true;
     }
 
     public Player (int id) {
@@ -22,6 +24,7 @@ public class Player {
         this.human = false;
         this.name = getRandName();
         this.callThreshold = getRandCallThreshold();
+        this.rival = false;
     }
 
     public boolean isHuman() {
