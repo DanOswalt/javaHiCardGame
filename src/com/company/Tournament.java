@@ -140,7 +140,8 @@ public class Tournament {
         Collections.shuffle(Arrays.asList(players));
 
         for (int i = 0; i < (NUM_TABLES * 6) - 1; i++) {
-            activePlayers.add(players[i]);
+//          activePlayers.add(players[i]);
+            activePlayers.add(new Player(i + 1));
         }
 
         activePlayers.add(humanPlayer);
@@ -259,7 +260,8 @@ public class Tournament {
             for (int j = 0; j < tr.eliminatedPlayerIds.size(); j++) {
                 Player thisPlayer = getPlayerById(tr.eliminatedPlayerIds.get(j));
                 int finishingPlace = activePlayers.size();
-
+//                System.out.println(thisPlayer.name());
+//                System.out.println(thisTable.getId());
                 System.out.println("  Table " + thisTable.getId() + ": " + thisPlayer.name() + " eliminated in " + finishingPlace + " place.");
                 removeFromActivePlayersById(thisPlayer.id);
                 eliminatedPlayers.add(thisPlayer);
