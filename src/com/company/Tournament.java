@@ -117,10 +117,10 @@ public class Tournament {
 
     // One day, these could be initialized by user in constructor
     public Tournament() {
-        INITIAL_STACK = 4;
+        INITIAL_STACK = 5;
         INITIAL_BLIND = 1;
-        HANDS_PER_ROUND = 10;
-        NUM_TABLES = 50;
+        HANDS_PER_ROUND = 20;
+        NUM_TABLES = 200;
         PLAYER_NAME = "DAN";
     }
 
@@ -128,7 +128,7 @@ public class Tournament {
         Scanner in = new Scanner(System.in);
         String answer;
         int totalPlayers = NUM_TABLES * 6;
-        int totalRivals = totalPlayers / 20;
+        int totalRivals = 59;
         totalRivals = totalRivals > rivals.length ? rivals.length : totalRivals;
         int totalRandos = totalPlayers - totalRivals - 1;
 
@@ -227,6 +227,8 @@ public class Tournament {
     public void displayLeaderboard() {
 
         int size = leaderboard.size() < 10 ? leaderboard.size() : 10;
+        int rivalCounter = 10;
+
         Collections.sort(leaderboard);
 
         System.out.println(" ");
@@ -236,6 +238,21 @@ public class Tournament {
             System.out.println("  " + (i + 1) + ". " + stack.name + ": " + stack.chips);
         }
         System.out.println(" ");
+
+        // show top 5 rivals
+        for (int i = 0; i < leaderboard.size(); i++) {
+            NameAndStack thisStack = leaderboard.get(i);
+
+            if (thisStack.name.contains("-")) {
+                System.out.println("  *" + (i + 1) + ". " + thisStack.name + ": " + thisStack.chips);
+                rivalCounter--;
+            }
+
+            if (rivalCounter == 0) break;
+        }
+
+
+
     }
 
     public void displayTables() {
